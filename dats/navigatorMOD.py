@@ -29,39 +29,46 @@ transTimer      = loadingView.op('timer1')
 #####################################################
 
 def selectionHandler(info):
-    if info is None:
+    currentRow      = info.get('row')
+    
+    # invalid row click
+    if currentRow == -1:
         pass
 
     else:
-        lastRowSelected = ExplorerCOMP.fetch('lastRowSelected', 0)
-        webPage 	    = info.get('rowData').get('rowObject').get('webPage')
-        remoteTox 	    = info.get('rowData').get('rowObject').get('tox')
-        col             = info.get('col')
-        currentRow      = info.get('row')
 
-        ExplorerCOMP.store('selectedWebPage', webPage)
-        ExplorerCOMP.store('selectedRemoteTox', remoteTox)
-
-        if col == 0:
-            # same row clicked
-            if lastRowSelected == currentRow:
-                pass
-
-            else:
-                ExplorerCOMP.store('lastRowSelected', currentRow)
-                ExplorerCOMP.store('selectedWebPage', webPage)
-                ExplorerCOMP.store('selectedRemoteTox', remoteTox)
-                loadNewSelection()        
-
+        if info is None:
             pass
 
-        # view URL in browser
-        elif col == 1:
-            ui.viewFile(webPage)
+        else:
+            lastRowSelected = NavigatorCOMP.fetch('lastRowSelected', 0)
+            webPage 	    = info.get('rowData').get('rowObject').get('webPage')
+            remoteTox 	    = info.get('rowData').get('rowObject').get('tox')
+            col             = info.get('col')
 
-        # # toggle network COMPs
-        # elif col == 2:
-        #     networkView.par.display = (1 if not networkView.par.display.eval() else 0)
+            NavigatorCOMP.store('selectedWebPage', webPage)
+            NavigatorCOMP.store('selectedRemoteTox', remoteTox)
+
+            if col == 0:
+                # same row clicked
+                if lastRowSelected == currentRow:
+                    pass
+
+                else:
+                    NavigatorCOMP.store('lastRowSelected', currentRow)
+                    NavigatorCOMP.store('selectedWebPage', webPage)
+                    NavigatorCOMP.store('selectedRemoteTox', remoteTox)
+                    loadNewSelection()        
+
+                pass
+
+            # view URL in browser
+            elif col == 1:
+                ui.viewFile(webPage)
+
+            # # open floating network
+            # elif col == 2:
+            #     networkView.par.display = (1 if not networkView.par.display.eval() else 0)
 
     pass
 
@@ -73,17 +80,17 @@ def displayLoadingScreen():
     transTimer.par.start.pulse()
 
 def updateBrowser():
-    url = ExplorerCOMP.fetch('selectedWebPage')
+    url = NavigatorCOMP.fetch('selectedWebPage')
     webBrowser.par['Address'] = url
 
 def loadRemoteTox():
-    remoteTox = ExplorerCOMP.fetch('selectedRemoteTox')
+    remoteTox = NavigatorCOMP.fetch('selectedRemoteTox')
 
     try:
 
-        asset 	= urllib.request.urlopen(remoteTox)
-        tox 	= asset.read()
-        loadedTox = view.loadByteArray(tox)
+        asset 	    = urllib.request.urlopen(remoteTox)
+        tox 	    = asset.read()
+        loadedTox   = dispBuffer.loadByteArray(tox)
         loadedTox.par['display'] = True
         loadedTox.nodeX = 0
         loadedTox.nodeY = 0
@@ -93,7 +100,7 @@ def loadRemoteTox():
         print(e)
 
 def clearView():
-    for each in view.findChildren(depth=1):
+    for each in dispBuffer.findChildren(depth=1):
         each.destroy()
 
 def setTimerPlay(playVal):

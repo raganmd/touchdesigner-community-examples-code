@@ -1,39 +1,11 @@
-## Welcome to GitHub Pages
+# TouchDesigner Community Examples
 
-First Page - [Render-00](pages/container-render-00)
-
-You can use the [editor on GitHub](https://github.com/raganmd/touchdesigner-community-examples/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/raganmd/touchdesigner-community-examples/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## List of Repo Examples
+* [Blend CHOP](pages/blend-chop-00)
+* [Blend CHOP and Spring SOP](pages/blend-spring-chop-00)
+* [Camera Animation with Animation COMP](pages/camera-animation-00)
+* [Camera Blend Animation](pages/camera-animation-01)
+* [Camera Animation along a Path](pages/camera-animation-02)
+* [Letter Particles](pages/letter-particles-00)
+* [XML Creation Example](pages/xml-example-00)
+* [Write vals to a Table](pages/write-to-table-00)
