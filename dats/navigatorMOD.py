@@ -94,6 +94,8 @@ def loadRemoteTox():
         loadedTox.par['display'] = True
         loadedTox.nodeX = 0
         loadedTox.nodeY = 0
+        loadedTox.par.hmode = 1
+        loadedTox.par.vmode = 1
         updateBrowser()
 
     except Exception as e:
