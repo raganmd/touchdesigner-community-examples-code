@@ -8,5 +8,5 @@ title: XML Example
 
 Currently no body copy
 
-### Example by | Matthew Ragan
-### Example Created | 11/06/2016
+#### Created 11.06.2016
+*Matthew Ragan*

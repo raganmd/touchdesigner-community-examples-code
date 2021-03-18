@@ -5,7 +5,6 @@ title: Write Values to a Table
 
 # Write Vals to a Table
 ### tox: container_write_button_vals_to_table
-_**8.3.16**_
 
 **Original post / question**
 
@@ -48,3 +47,7 @@ This script would change the value of a cell to 1. Instead we want to change the
        op( 'table_save' )[ panelValue.owner.digits, 1 ] = panelValue
        return
 ```
+
+---
+#### Created 08.03.2016
+*Matthew Ragan*

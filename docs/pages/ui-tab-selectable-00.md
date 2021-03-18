@@ -8,5 +8,7 @@ title: Tab Selectable UIs
 
 Simple tabbed UI example
 
-### Example by | Matthew Ragan
-### Example Created | 03/07/2021
+
+---
+#### Created 03.07.2021
+*Matthew Ragan*
