@@ -1,8 +1,6 @@
 ---
 layout: content-page
 title: Image and Video Bin Example
-author: Matthew Ragan
-dateCreated: 11.06.2016
 ---
 
 # Image and Video Bin Example
