@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content-page
 title: Camera Blend Animation
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: content-page
 title: Blend CHOP 00
 ---
 

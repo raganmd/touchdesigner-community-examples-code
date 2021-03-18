@@ -1,10 +1,10 @@
 ---
 layout: content-page
-title: Camera Animation
+title: Image and Video Bin Example
 ---
 
-# Camera Animation Technique 01
-### tox: container_camera_animation_00
+# Image and Video Bin Example
+### tox: container_bin_and_display_00
 
 Currently no body copy
 

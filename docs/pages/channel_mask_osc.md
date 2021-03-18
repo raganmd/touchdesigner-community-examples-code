@@ -1,10 +1,10 @@
 ---
 layout: content-page
-title: Camera Animation
+title: Channel Masking from OSC Input
 ---
 
-# Camera Animation Technique 01
-### tox: container_camera_animation_00
+# Channel Masking from OSC Input
+### tox: container_channel_mask_osc
 
 Currently no body copy
 
