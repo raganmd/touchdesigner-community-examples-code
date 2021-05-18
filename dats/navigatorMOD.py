@@ -72,6 +72,16 @@ def selectionHandler(info):
 
     pass
 
+def checkLoad(url):
+    qsResult = querryStringParse(url)
+    if 'remoteTox' in qsResult.keys():
+        remoteTox = qsResult.get('remoteTox')
+        print(remoteTox)
+        NavigatorCOMP.store('selectedRemoteTox', remoteTox[0])
+        loadNewSelection()
+        print('load remote')
+    pass
+
 def loadNewSelection():
     loadingView.par['display'] = True
     displayLoadingScreen()
