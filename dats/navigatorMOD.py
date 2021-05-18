@@ -2,7 +2,7 @@
 # imports
 #####################################################
 
-import urllib.request
+import urllib
 import requests
 
 #####################################################
@@ -111,6 +111,11 @@ def setTimerPlay(playVal):
 
 def toggleSettings():
     settingsView.par.display = (0 if settingsView.par.display else 1)
+
+def querryStringParse(url):
+    parseResult = urllib.parse.urlparse(url).query
+    qsResult = urllib.parse.parse_qs(parseResult)
+    return qsResult
 
 #####################################################
 ## Timer Functions
