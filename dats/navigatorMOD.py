@@ -23,6 +23,16 @@ dispBuffer      = view.op('container_display_buffer')
 
 transTimer      = loadingView.op('timer1')
 
+#####################################################
+## Func Finder
+#####################################################
+def qs_funcs(func_key):
+    func_map = {
+        'remoteTox' : loadNewTox,
+        'openNetwork' : openFloatingNetwork
+        }
+    return func_map.get(func_key)
+
 
 #####################################################
 # functions
@@ -74,12 +84,43 @@ def selectionHandler(info):
 
 def checkLoad(url):
     qsResult = querryStringParse(url)
-    if 'remoteTox' in qsResult.keys():
-        remoteTox = qsResult.get('remoteTox')
-        print(remoteTox)
-        NavigatorCOMP.store('selectedRemoteTox', remoteTox[0])
-        loadNewSelection()
-        print('load remote')
+    key_list = [key for key in qsResult.keys()]
+
+    if len(key_list) < 1:
+        pass
+
+    else:
+        print(key_list)
+        try:
+            func = qs_funcs(key_list[0])
+            func(qsResult)
+        except Exception as e:
+            debug(e)
+
+    pass
+
+def openFloatingNetwork(parsedQs):
+    print("Open Floating Window")
+
+    floating_pane = ui.panes.createFloating(name="Example")
+    current_example = parent.Navigator.op('container_ui/container_view/container_display_buffer').findChildren(depth=1)[0]
+    floating_pane.owner = current_example
+    floating_pane.home()
+
+    func = "parent().mod.navigatorMOD.webBrowserGoBack()"
+    run(func, delayFrames=5)
+    pass
+
+def webBrowserGoBack():
+    print("go back")
+    webBrowser.par.Goback.pulse()
+
+def loadNewTox(parsedQs):
+    remoteTox = parsedQs.get('remoteTox')
+    print(remoteTox)
+    NavigatorCOMP.store('selectedRemoteTox', remoteTox[0])
+    loadNewSelection()
+    print('load remote')
     pass
 
 def loadNewSelection():
@@ -145,4 +186,5 @@ def timerSegmentEnter(**kwargs):
 def onTimerDone(**kwargs):
     loadingView.par['display'] = False
     pass
+
 
